@@ -1,0 +1,47 @@
+.student-card {
+    border-radius: 15px;
+    border: 3px solid gold; /* Bordure dorée */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.student-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+}
+
+.card-img-left {
+    border-radius: 15px 0 0 15px;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.student-info {
+    margin-left: 15px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.student-info p {
+    margin: 0;
+}
+
+.student-info hr {
+    margin: 10px 0;
+}
+
+/* Centrer la pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

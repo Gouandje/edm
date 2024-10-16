@@ -124,7 +124,7 @@ class FormController extends BaseController
                     'user_id' => $decryptedId,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
-                    'week' => 'semaine' . $weekNumber,
+                    'week' => 'Semaine' . $weekNumber,
                 ];
             }
         }
@@ -166,6 +166,27 @@ class FormController extends BaseController
         $data['auditors'] = $users;
         $data['title'] = "Réponses de auditeurs";
         return view('backend/reponses/etudiants', $data);
+    }
+
+    public function responsesetudiant($id)
+    {
+        $model = new ReponsesModel();
+        $usermodel = new UserModel();
+        $auditormodel = new Auditors();
+        $encrypter = Services::encrypter();
+        $decryptedId = $encrypter->decrypt(hex2bin($id));
+
+        $auditor = $auditormodel->find($decryptedId);
+        // var_dump($decryptedId);
+        // var_dump($user['user_id']);
+        // die();
+        $responses = $model->getResponsesWithUsersAndQuestionsByAuditor($auditor['user_id']);
+        $data['auditor'] = $auditor;
+        $data['responses']= $responses;
+        // die();
+        // $data['auditors'] = $users;
+        $data['title'] = "Réponses de auditeurs";
+        return view('backend/reponses/reponse', $data);
     }
 
     public function edit($id)
@@ -349,6 +370,8 @@ class FormController extends BaseController
             // }
         
             $postData = $this->request->getPost();
+            // var_dump($postData);
+            // die();
     
              $sumValues = 0;
         

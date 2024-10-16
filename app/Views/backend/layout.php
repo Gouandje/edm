@@ -14,81 +14,83 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/styles.css">
     <link rel="stylesheet" href="<?= base_url()?>assets/css/studentcard.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/css/notifications/Lobibox.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/css/notifications/notifications.css">
     <style>
 
         /* assets/css/styles.css */
 
-/* Styles du wrapper */
-#wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-    transition: all 0.3s ease;
-    padding-top: 56px; /* Hauteur de la navbar (56px pour Bootstrap) */
-}
+        /* Styles du wrapper */
+        #wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+            transition: all 0.3s ease;
+            padding-top: 56px; /* Hauteur de la navbar (56px pour Bootstrap) */
+        }
 
-/* Sidebar Styles */
-#sidebar-wrapper {
-    min-width: 250px;
-    max-width: 250px;
-    background-color: #1b3049;
-    transition: all 0.3s ease;
-    position: fixed;
-    top: 56px; /* Hauteur de la navbar */
-    left: 0;
-    height: 100%;
-    overflow-y: auto;
-}
+        /* Sidebar Styles */
+        #sidebar-wrapper {
+            min-width: 250px;
+            max-width: 250px;
+            background-color: #1b3049;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 56px; /* Hauteur de la navbar */
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
 
-#sidebar-wrapper .sidebar-heading {
-    background-color: #1b3049;
-    color: #fff;
-}
+        #sidebar-wrapper .sidebar-heading {
+            background-color: #1b3049;
+            color: #fff;
+        }
 
-#sidebar-wrapper .list-group a {
-    background-color: #1b3049;
-    border: none;
-    padding: 15px 20px;
-}
+        #sidebar-wrapper .list-group a {
+            background-color: #1b3049;
+            border: none;
+            padding: 15px 20px;
+        }
 
-#sidebar-wrapper .list-group a:hover {
-    background-color: #1b3049;
-    color: #fff;
-    text-decoration: none;
-}
+        #sidebar-wrapper .list-group a:hover {
+            background-color: #1b3049;
+            color: #fff;
+            text-decoration: none;
+        }
 
-/* Page Content Styles */
-#page-content-wrapper {
-    width: 100%;
-    padding: 20px;
-    margin-left: 250px; /* Largeur de la sidebar */
-    transition: all 0.3s ease;
-}
+        /* Page Content Styles */
+        #page-content-wrapper {
+            width: 100%;
+            padding: 20px;
+            margin-left: 250px; /* Largeur de la sidebar */
+            transition: all 0.3s ease;
+        }
 
-/* Menu Toggled Styles */
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: -250px;
-}
+        /* Menu Toggled Styles */
+        #wrapper.toggled #sidebar-wrapper {
+            margin-left: -250px;
+        }
 
-#wrapper.toggled #page-content-wrapper {
-    margin-left: 0;
-}
+        #wrapper.toggled #page-content-wrapper {
+            margin-left: 0;
+        }
 
-/* Media Queries pour Responsiveness */
-@media (max-width: 768px) {
-    #sidebar-wrapper {
-        margin-left: -250px;
-    }
-    #wrapper.toggled #sidebar-wrapper {
-        margin-left: 0;
-    }
-    #page-content-wrapper {
-        margin-left: 0;
-    }
-    #wrapper {
-        flex-direction: column;
-    }
-}
+        /* Media Queries pour Responsiveness */
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -250px;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                margin-left: 0;
+            }
+            #wrapper {
+                flex-direction: column;
+            }
+        }
 
 
     </style>
@@ -170,165 +172,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Custom JS -->
-    <script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        // assets/js/scripts.js
-
-document.getElementById("menu-toggle").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("wrapper").classList.toggle("toggled");
-});
-
-// Graphique avec Chart.js
-document.addEventListener("DOMContentLoaded", function() {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar', // Type de graphique (bar, line, pie, etc.)
-        data: {
-            labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin'],
-            datasets: [{
-                label: 'Ventes',
-                data: [12, 19, 8, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)', // Vert
-                    'rgb(47, 67, 98) !important', // Bleu
-                    'rgba(255, 206, 86, 0.2)', // Jaune
-                    'rgba(255, 99, 132, 0.2)', // Rouge
-                    'rgba(153, 102, 255, 0.2)', // Violet
-                    'rgba(255, 159, 64, 0.2)'  // Orange
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)', // Vert
-                    'rgba(54, 162, 235, 1)', // Bleu
-                    'rgba(255, 206, 86, 1)', // Jaune
-                    'rgba(255, 99, 132, 1)', // Rouge
-                    'rgba(153, 102, 255, 1)', // Violet
-                    'rgba(255, 159, 64, 1)'  // Orange
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-});
+    <!-- notifications -->
+    <!-- notification JS
+		============================================ -->
+    <script src="<?= base_url(); ?>assets/js/notifications/Lobibox.js"></script>
+    <script src="<?= base_url(); ?>assets/js/notifications/notification-active.js"></script>
+    <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
 
 
-    </script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const cardsPerPage = 6; // Nombre de cartes par page
-        const studentCards = document.querySelectorAll('.student-card-item');
-        const totalCards = studentCards.length;
-        const totalPages = Math.ceil(totalCards / cardsPerPage);
-        const pagination = document.getElementById('pagination');
-
-        let currentPage = 1;
-
-        function showPage(page) {
-            // Cacher toutes les cartes
-            studentCards.forEach((card, index) => {
-                card.style.display = 'none';
-            });
-
-            // Calculer les indices des cartes à afficher
-            const start = (page - 1) * cardsPerPage;
-            const end = start + cardsPerPage;
-
-            // Afficher les cartes de la page actuelle
-            for (let i = start; i < end && i < totalCards; i++) {
-                studentCards[i].style.display = 'block';
-            }
-
-            // Mettre à jour les classes actives de la pagination
-            const paginationItems = pagination.querySelectorAll('li');
-            paginationItems.forEach((item, index) => {
-                if (index === page) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        function setupPagination() {
-            // Créer les éléments de pagination
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement('li');
-                li.classList.add('page-item');
-                if (i === 1) li.classList.add('active');
-
-                const a = document.createElement('a');
-                a.classList.add('page-link');
-                a.href = '#';
-                a.textContent = i;
-                a.dataset.page = i;
-
-                a.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    currentPage = Number(this.dataset.page);
-                    showPage(currentPage);
-                });
-
-                li.appendChild(a);
-                pagination.appendChild(li);
-            }
-
-            // Boutons Précédent et Suivant
-            // Bouton Précédent
-            const prevLi = document.createElement('li');
-            prevLi.classList.add('page-item');
-
-            const prevA = document.createElement('a');
-            prevA.classList.add('page-link');
-            prevA.href = '#';
-            prevA.textContent = 'Précédent';
-            prevA.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (currentPage > 1) {
-                    currentPage--;
-                    showPage(currentPage);
-                }
-            });
-
-            prevLi.appendChild(prevA);
-            pagination.insertBefore(prevLi, pagination.firstChild);
-
-            // Bouton Suivant
-            const nextLi = document.createElement('li');
-            nextLi.classList.add('page-item');
-
-            const nextA = document.createElement('a');
-            nextA.classList.add('page-link');
-            nextA.href = '#';
-            nextA.textContent = 'Suivant';
-            nextA.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    showPage(currentPage);
-                }
-            });
-
-            nextLi.appendChild(nextA);
-            pagination.appendChild(nextLi);
-        }
-
-        setupPagination();
-        showPage(currentPage);
-    });
-</script>
-
-
-<script>
+<!-- <script>
         document.getElementById('professor-add-form').addEventListener('submit', function(event) {
         	event.preventDefault(); // Empêche le formulaire de se soumettre normalement
 			// let id = document.getElementById('encryptedId').value;
@@ -635,42 +489,100 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }, 'json');
     }
+</script> -->
+
+<script>
+    $('#noteForm').on('submit', function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: '<?= base_url()?>save-note',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    Lobibox.notify('success', {
+                        msg: response.message
+                    });
+                    window.location = "<?= base_url()?>reponses";
+                } else {
+                    Lobibox.notify('error', {
+                        msg: response.message
+                    });
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                Lobibox.notify('error', {
+                    title: 'Erreur de connexion au serveur',
+                    msg: errorThrown
+                });
+            }
+        });
+    });
 </script>
 
-    <script>
-        $('#noteForm').on('submit', function(event) {
-                event.preventDefault();
-                var formData = new FormData(this);
+<script>
+    $(document).ready(function() {
+        $('#startDate, #endDate').on('change', function() {
+            // Récupérer les valeurs des dates
+            var startDate = new Date($('#startDate').val());
+            var endDate = new Date($('#endDate').val());
+            
+            // Vérifier si la date de fin est inférieure à la date de début
+            if (startDate && endDate && endDate < startDate) {
+                // Afficher le message d'erreur
+                $('#dateError').removeClass('d-none');
+            } else {
+                // Cacher le message d'erreur
+                $('#dateError').addClass('d-none');
+            }
+        });
 
+        // Envoyer les données via AJAX si elles sont valides
+        $('#dateForm').on('submit', function(event) {
+            event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
+
+            var startDate = new Date($('#startDate').val());
+            var endDate = new Date($('#endDate').val());
+
+            // Vérifier si la date de fin est valide avant l'envoi
+            if (endDate >= startDate) {
                 $.ajax({
-                    url: '<?= base_url()?>save-note',
+                    url: '<?= base_url()?>export-xlsx',
                     method: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
+                    data: {
+                        startDate: $('#startDate').val(),
+                        endDate: $('#endDate').val()
+                    },
                     success: function(response) {
-                        if (response.success == true) {
-                            Lobibox.notify('success', {
-                            msg: response.message
-                            });
-
-                            window.location="<?= base_url()?>edm-admin";
-                        } else {
-                            Lobibox.notify('error', {
-                            // img: <?= base_url()?>response.data.avatar,
-                            msg: response.message
-                        });
-                        }
+                        if (response.success) {
+                    Lobibox.notify('success', {
+                        msg: response.message
+                    });
+                    window.location = "<?= base_url()?>reponses";
+                } else {
+                    Lobibox.notify('error', {
+                        msg: response.message
+                    });
+                }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         Lobibox.notify('error', {
-                        title: 'Erreur de connexion au serveur',
-                        msg: errorThrown
-                    });
-                }
-            });
+                            msg: response.message
+                        });
+                    }
+                });
+            } else {
+                // Si les dates sont incorrectes, afficher un message d'erreur
+                $('#dateError').removeClass('d-none');
+            }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>

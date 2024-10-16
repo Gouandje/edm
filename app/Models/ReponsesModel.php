@@ -61,6 +61,19 @@ class ReponsesModel extends Model
                     ->where('reponses.status', null)
                     ->findAll();
     }
+
+    public function getResponsesWithUsersAndQuestionsByAuditor($id)
+    
+    {
+    //     var_dump($id);
+    // die();
+        return $this->select('reponses.*, auditors.nom_prenom, questions.question, questions.question_type')
+                    ->join('auditors', 'auditors.user_id = reponses.user_id')
+                    ->join('questions', 'questions.id = reponses.question_id')
+                    ->where('reponses.user_id', $id)
+                    ->where('reponses.status', null)
+                    ->findAll();
+    }
     
     
 

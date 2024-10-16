@@ -50,11 +50,13 @@ class Notes extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
     
-    public function getNotesAuditor()
+    public function getNotesAuditor($startDate, $endDate)
     {
-        return $this->select('notes.*, users.id as userid, users.role, auditors.id as auditorId')
+        return $this->select('notes.*, users.id as userid, users.role, auditors.nom_prenom, auditors.id as auditorId')
                     ->join('auditors', 'auditors.id = notes.auditor_id')
                     ->join('users', 'auditors.user_id = users.id')
+                    ->where('notes.created_at >=', $startDate)
+                    ->where('notes.created_at <=', $endDate)
                     ->findAll();
     }
 }

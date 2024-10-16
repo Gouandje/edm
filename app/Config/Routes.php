@@ -35,12 +35,14 @@ $routes->get('modification-niveau/(:any)', 'NiveauController::editform/$1');
 $routes->post('sauve-modif-niveau', 'NiveauController::update');
 $routes->get('supprime-niveau/(:any)', 'NiveauController::delete/$1');
 $routes->get('reponses', 'FormController::responses');
+$routes->get('responsesetudiant/(:any)', 'FormController::responsesetudiant/$1');
 $routes->get('reponses-notees', 'FormController::responsesNotees');
 $routes->get('ajout-de-questionnaire', 'FormController::addquestionnaire');
 $routes->post('save-questionnaire', 'FormController::savequestionnaire');
 $routes->post('save-note', 'FormController::saveNote');
 $routes->get('liste-des-questions', 'FormController::index');
-$routes->post('export/xlsx', 'ExportController::exportXlsx');
+$routes->post('export-xlsx', 'ExportController::exportXlsx');
+$routes->get('test-xlsx', 'ExportController::exportSimpleXlsx');
 
 
 $routes->get('auditeur-edm-profile', 'AdminMain::auditorpanel');

@@ -8,6 +8,7 @@ use App\Models\QuestionnairesModel;
 use App\Models\QuestionsModel;
 use App\Models\Auditors;
 use App\Models\Niveaux;
+use App\Models\Notes;
 
 
 class EspacAuditorController extends BaseController
@@ -16,6 +17,7 @@ class EspacAuditorController extends BaseController
     {
         $auditorModel = new Auditors();
         $niveaumodel = new Niveaux();
+        $note_model = new Notes();
 
         $session = session();
 
@@ -24,8 +26,13 @@ class EspacAuditorController extends BaseController
         $questionmodel = new QuestionsModel();
 
         $data['questions'] = $questionmodel->getWithQuestionnaire();
+        $data['notes'] = $note_model->getNotebyAuditor($data['auditor']['id']);
+        // var_dump($data['notes']);
+        // die();
 
         $data['title'] = 'Tableau Auditeur';
         return view('backend/espaceauditor/profil_auditor', $data);
     }
+
+    
 }

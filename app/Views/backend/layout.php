@@ -1,5 +1,9 @@
 <?php
-// index.php
+ $session = session(); 
+ $currentUri = current_url();
+//  $role = $session->get('role');
+//  var_dump($role);
+//  die();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -92,7 +96,12 @@
             }
         }
 
-
+        .profile-img {
+            width: 40px; /* Taille de l'image (réduit) */
+            height: 40px; /* Taille de l'image (réduit) */
+            border-radius: 50%; /* Rendre l'image circulaire */
+            object-fit: cover; /* Pour éviter que l'image soit déformée */
+        }
     </style>
 </head>
 <body>
@@ -108,21 +117,23 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Lien Télégram</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <?php if ($session->get('isLoggedIn')): ?>
+                        <li class="nav-item"><a class="nav-link" href="#"><?= $session->get('nom_prenom'); ?></a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Profil
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Autre action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Déconnexion</a>
-                        </div>
-                    </li>
+                                <!-- Image de profil, stylisée en cercle et petite taille -->
+                                <img src="<?= base_url(esc($session->get('avatar'))); ?>" alt="" class="profile-img" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= base_url(); ?>deconnexion">Déconnexion</a>
+                            </div>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
+
         </div>
     </nav>
     <!-- /Navbar -->
@@ -130,31 +141,50 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-primary text-white" id="sidebar-wrapper" style="background-color: #1b3049 !important;">
-            <!--<div class="sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase border-bottom">
-                Menu
-            </div>-->
             <div class="list-group list-group-flush my-3">
-                <a href="<?= base_url()?>edm-admin" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
-                    <i class="fas fa-tachometer-alt me-2"></i> Tableau de Bord
-                </a>
-                <a href="<?= base_url() ?>auditeurs" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
-                    <i class="fas fa-users me-2"></i> Etudiants
-                </a>
-                <a href="<?= base_url(); ?>disciplines" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
-                    <i class="fas fa-folder me-2"></i> Cours
-                </a>
-                <a href="<?= base_url(); ?>reponses" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
+                <?php if ($session->get('role') == 'administrateur') : ?>
+                    <!-- Tableau de bord -->
+                    <a href="<?= base_url()?>edm-admin" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'edm-admin') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
+                        <i class="fas fa-tachometer-alt me-2"></i> Tableau de Bord
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($session->get('role') == 'auditeur') : ?>
+                    <!-- Mon Compte -->
+                    <a href="<?= base_url()?>mon-compte" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'mon-compte') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
+                        <i class="fas fa-user me-2"></i> Mon Compte
+                    </a>
+                <?php endif; ?>
+
+                <!-- Etudiants (Disponible uniquement pour un rôle spécifique) -->
+                <?php if ($session->get('role') == 'administrateur') : ?>
+                    <a href="<?= base_url() ?>auditeurs" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'auditeurs') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
+                        <i class="fas fa-users me-2"></i> Etudiants
+                    </a>
+                <?php endif; ?>
+
+                <!-- Cours (Accessible uniquement pour certains rôles) -->
+                <?php if ($session->get('role') == 'administrateur') : ?>
+                    <a href="<?= base_url(); ?>disciplines" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'disciplines') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
+                        <i class="fas fa-folder me-2"></i> Cours
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($session->get('role') == 'administrateur') : ?>
+                    <a href="<?= base_url(); ?>reponses" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'reponses') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
                     <i class="fas fa-user me-2"></i> Examens Etudiants
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
-                    <i class="fas fa-cog me-2"></i> Paramètres
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-primary text-white" style="background-color: #1b3049 !important;">
-                    <i class="fas fa-sign-out-alt me-2"></i> Déconnexion
-                </a>
+                <?php endif; ?>
+
+                <?php if ($session->get('role') == 'auditeur') : ?>
+                    <a href="<?= base_url(); ?>mon-devoir" class="list-group-item list-group-item-action bg-primary text-white <?= ($currentUri == base_url() . 'mon-devoir') ? 'active' : ''; ?>" style="background-color: #1b3049 !important;">
+                        <i class="fas fa-user me-2"></i> Mon devoir
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
+
         <div id="page-content-wrapper">
              <!-- Page Content -->
             <?= $this->renderSection('content'); ?>
@@ -560,25 +590,99 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                    Lobibox.notify('success', {
-                        msg: response.message
-                    });
-                    window.location = "<?= base_url()?>reponses";
-                } else {
-                    Lobibox.notify('error', {
-                        msg: response.message
-                    });
-                }
+                            Lobibox.notify('success', {
+                                msg: response.message
+                            });
+                            window.location = "<?= base_url()?>reponses";
+                        } else {
+                            Lobibox.notify('error', {
+                                msg: response.message
+                            });
+                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         Lobibox.notify('error', {
-                            msg: response.message
+                            msg: errorThrown
                         });
                     }
                 });
             } else {
                 // Si les dates sont incorrectes, afficher un message d'erreur
                 $('#dateError').removeClass('d-none');
+            }
+        });
+    });
+</script>
+
+<script>
+    $('#devoirForm').on('submit', function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            url: '<?= base_url()?>valider-mon-devoir',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success == true) {
+                    Lobibox.notify('success', {
+                    msg: response.message
+                    });
+                                    window.location="<?= base_url()?>mon-compte";
+                    
+
+                    // window.location="<?= base_url()?>auditeurs";
+                } 
+                else {
+                    Lobibox.notify('error', {
+                        msg: response.message
+                    });
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                Lobibox.notify('error', {
+                title: 'Erreur de connexion au serveur',
+                msg: errorThrown
+            });
+        }
+    });
+    });
+</script>
+
+<script>
+    $('#byauditoreditform').on('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: '<?= base_url()?>sauve-modif-by-auditeur',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success == true) {
+                        Lobibox.notify('success', {
+                        // img: `<?= base_url()?>${response.data.avatar}`,
+                        msg: response.message
+                        });
+
+                        location.reload(); 
+                    } else {
+                        Lobibox.notify('error', {
+                        // img: <?= base_url()?>response.data.avatar,
+                        msg: response.message
+                    });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    Lobibox.notify('error', {
+                    title: 'Erreur de connexion au serveur',
+                    msg: errorThrown
+                });
             }
         });
     });

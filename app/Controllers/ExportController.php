@@ -25,14 +25,19 @@ class ExportController extends BaseController
         // Créer un nouveau fichier Excel
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
+        
         // Récupérer et formater les dates
-        $startDate = date('Y-m-d H:i:s', strtotime($this->request->getPost('startDate')));
-        $endDate = date('Y-m-d H:i:s', strtotime($this->request->getPost('endDate')));
+        $startDate = $this->request->getPost('startDate');
+        $endDate = $this->request->getPost('endDate');
     
         // Vérifier si les dates sont valides
         if (!$startDate || !$endDate) {
             return $this->response->setJSON(['success' => false, 'message' => 'Veuillez fournir une plage de dates valide.']);
         }
+    
+        // Formater les dates pour la requête
+        $startDate = date('Y-m-d H:i:s', strtotime($startDate));
+        $endDate = date('Y-m-d H:i:s', strtotime($endDate));
     
         // Charger les données des notes filtrées par date
         $notesModel = new Notes();
@@ -76,8 +81,6 @@ class ExportController extends BaseController
         // Trier les semaines dans l'ordre croissant
         sort($weeks);
     
-
-    
         // Titre du fichier
         $sheet->setCellValue('A1', 'Utilisateur');
         
@@ -115,15 +118,24 @@ class ExportController extends BaseController
         // Nom du fichier Excel à exporter
         $fileName = 'notes_auditeurs_' . date('Ymd_His') . '.xlsx'; // Utiliser un format de date sans espaces
     
-        // Préparer la réponse pour le téléchargement du fichier
-        $this->response->setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-                       ->setHeader('Content-Disposition', 'attachment; filename="' . $fileName . '"')
-                       ->setHeader('Cache-Control', 'max-age=0');
+        // Définir le chemin temporaire pour sauvegarder le fichier
+        $tempFilePath = WRITEPATH . 'uploads/' . $fileName;
     
-        // Envoi du fichier Excel
-        $writer->save('php://output');
-        exit;
+        // Enregistrer le fichier Excel dans le fichier temporaire
+        $writer->save($tempFilePath);
+    
+        // Vérifier si le fichier a été créé correctement
+        if (!file_exists($tempFilePath)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Erreur lors de la création du fichier Excel.']);
+        }
+    
+        // Préparer la réponse pour le téléchargement du fichier
+        return $this->response->download($tempFilePath, null)->setFileName($fileName);
+    
+        // Supprimer le fichier temporaire après envoi
+        unlink($tempFilePath);
     }
+    
 
     public function exportSimpleXlsx()
     {

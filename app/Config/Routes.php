@@ -53,7 +53,9 @@ $routes->get('deconnexion', 'AuthController::logout');
 $routes->get('creation-de-compte', 'AuthController::register');
 $routes->get('mot-de-passe-oublie', 'AuthController::forgotPassword');
 
-$routes->get('mon-compte', 'EspacAuditorController::index');
-$routes->get('mon-devoir', 'FormController::devoir');
-$routes->post('valider-mon-devoir', 'FormController::validedevoir');
-$routes->post('sauve-modif-by-auditeur', 'AuditorController::updatebyAuditor');
+$routes->group('', ['filter' => 'auditorAuth'], function($routes) {
+    $routes->get('mon-compte', 'EspacAuditorController::index');
+    $routes->get('mon-devoir', 'FormController::devoir');
+    $routes->post('valider-mon-devoir', 'FormController::validedevoir');
+    $routes->post('sauve-modif-by-auditeur', 'AuditorController::updatebyAuditor');
+});

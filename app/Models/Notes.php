@@ -59,4 +59,10 @@ class Notes extends Model
                     ->where('notes.created_at <=', $endDate)
                     ->findAll();
     }
+
+    public function getNotebyAuditor($id){
+        return $this->select('notes.*')
+                   ->where('notes.auditor_id', $id)
+                    ->findAll();
+    }
 }

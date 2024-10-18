@@ -1,0 +1,341 @@
+CRITICAL - 2024-10-18 15:25:40 --> CodeIgniter\Encryption\Exceptions\EncryptionException: Decrypting: authentication failed.
+[Method: POST, Route: sauve-modif-by-auditeur]
+in SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php on line 141.
+ 1 SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php(141): CodeIgniter\Encryption\Exceptions\EncryptionException::forAuthenticationFailed()
+ 2 APPPATH\Controllers\AuditorController.php(227): CodeIgniter\Encryption\Handlers\OpenSSLHandler->decrypt()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuditorController->updatebyAuditor()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 15:28:35 --> CodeIgniter\Encryption\Exceptions\EncryptionException: Decrypting: authentication failed.
+[Method: POST, Route: sauve-modif-by-auditeur]
+in SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php on line 141.
+ 1 SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php(141): CodeIgniter\Encryption\Exceptions\EncryptionException::forAuthenticationFailed()
+ 2 APPPATH\Controllers\AuditorController.php(227): CodeIgniter\Encryption\Handlers\OpenSSLHandler->decrypt()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuditorController->updatebyAuditor()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 15:43:43 --> ErrorException: Undefined variable $notes
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\espaceauditor\profil_auditor.php on line 100.
+ 1 APPPATH\Views\backend\espaceauditor\profil_auditor.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\espaceauditor\\profil_auditor.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\EspacAuditorController.php(31): view()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 15:44:56 --> ErrorException: Undefined variable $notes
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\espaceauditor\profil_auditor.php on line 100.
+ 1 APPPATH\Views\backend\espaceauditor\profil_auditor.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\espaceauditor\\profil_auditor.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\EspacAuditorController.php(31): view()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 15:49:17 --> BadMethodCallException: Call to undefined method App\Models\Notes::getNotebyAuditor
+[Method: GET, Route: mon-compte]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\EspacAuditorController.php(29): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:10 --> ErrorException: Undefined variable $role
+[Method: GET, Route: responsesetudiant/9bb076048e56811f5649148e801606b10c2167c1b14d2f1e47b7b97dd5808ca61bafbfd5bf45966e08e7ec46a14600b3025d4169d8816623bd8dc4f7c9e0f35ffc218903782324b1e28d6c4002228d81b4]
+in APPPATH\Views\backend\layout.php on line 134.
+ 1 APPPATH\Views\backend\layout.php(134): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\FormController.php(183): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->responsesetudiant()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:13 --> ErrorException: Undefined variable $role
+[Method: GET, Route: reponses]
+in APPPATH\Views\backend\layout.php on line 134.
+ 1 APPPATH\Views\backend\layout.php(134): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\FormController.php(162): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->responses()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:15 --> ErrorException: Undefined variable $role
+[Method: GET, Route: auditeurs]
+in APPPATH\Views\backend\layout.php on line 134.
+ 1 APPPATH\Views\backend\layout.php(134): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\AuditorController.php(26): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:16 --> ErrorException: Undefined variable $role
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 134.
+ 1 APPPATH\Views\backend\layout.php(134): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:18 --> ErrorException: Undefined variable $role
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 134.
+ 1 APPPATH\Views\backend\layout.php(134): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:51 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 144.
+ 1 APPPATH\Views\backend\layout.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:53 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 144.
+ 1 APPPATH\Views\backend\layout.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:53 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 144.
+ 1 APPPATH\Views\backend\layout.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:55 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-devoir]
+in APPPATH\Views\backend\layout.php on line 144.
+ 1 APPPATH\Views\backend\layout.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\FormController.php(68): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->devoir()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:11:56 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-devoir]
+in APPPATH\Views\backend\layout.php on line 144.
+ 1 APPPATH\Views\backend\layout.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\FormController.php(68): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->devoir()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:12:40 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-devoir]
+in APPPATH\Views\backend\layout.php on line 146.
+ 1 APPPATH\Views\backend\layout.php(146): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\FormController.php(68): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->devoir()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:12:53 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 146.
+ 1 APPPATH\Views\backend\layout.php(146): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:16:20 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 146.
+ 1 APPPATH\Views\backend\layout.php(146): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:16:49 --> ErrorException: Undefined variable $currentUri
+[Method: GET, Route: mon-compte]
+in APPPATH\Views\backend\layout.php on line 146.
+ 1 APPPATH\Views\backend\layout.php(146): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\projet_kassi\\edm\\app\\Views\\backend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render()
+ 6 APPPATH\Controllers\EspacAuditorController.php(34): view()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EspacAuditorController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:40:20 --> CodeIgniter\Database\Exceptions\DatabaseException: insertBatch() has no data.
+[Method: POST, Route: save-note]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1807.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseBuilder->batchExecute()
+ 2 SYSTEMPATH\Model.php(428): CodeIgniter\Database\BaseBuilder->insertBatch()
+ 3 SYSTEMPATH\BaseModel.php(960): CodeIgniter\Model->doInsertBatch()
+ 4 APPPATH\Controllers\FormController.php(391): CodeIgniter\BaseModel->insertBatch()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->saveNote()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:41:55 --> CodeIgniter\Database\Exceptions\DatabaseException: insertBatch() has no data.
+[Method: POST, Route: save-note]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1807.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseBuilder->batchExecute()
+ 2 SYSTEMPATH\Model.php(428): CodeIgniter\Database\BaseBuilder->insertBatch()
+ 3 SYSTEMPATH\BaseModel.php(960): CodeIgniter\Model->doInsertBatch()
+ 4 APPPATH\Controllers\FormController.php(391): CodeIgniter\BaseModel->insertBatch()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->saveNote()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:51:47 --> CodeIgniter\Encryption\Exceptions\EncryptionException: Decrypting: authentication failed.
+[Method: POST, Route: valider-mon-devoir]
+in SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php on line 141.
+ 1 SYSTEMPATH\Encryption\Handlers\OpenSSLHandler.php(141): CodeIgniter\Encryption\Exceptions\EncryptionException::forAuthenticationFailed()
+ 2 APPPATH\Controllers\FormController.php(80): CodeIgniter\Encryption\Handlers\OpenSSLHandler->decrypt()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->validedevoir()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')
+CRITICAL - 2024-10-18 16:57:48 --> ErrorException: hex2bin(): Input string must be hexadecimal string
+[Method: GET, Route: responsesetudiant/sounds/sound2.ogg]
+in APPPATH\Controllers\FormController.php on line 171.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH\Controllers\FormController.php(171): hex2bin()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FormController->responsesetudiant()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH\rewrite.php(44): require_once('E:\\projet_kassi\\edm\\public\\index.php')

@@ -42,20 +42,14 @@ class FormController extends BaseController
         $questionModel = new QuestionsModel();
         $session = session();
 
-        // Récupérer l'auditeur actuel avec son niveau
         $auditor = $auditorModel->getSingleAuditorWithNiveau($session->get('id'));
-        
-
-        // Récupérer toutes les questions avec leurs niveaux
         $questionDevoirNive = $questionModel->getWithQuestionnaire();
+        // var_dump($auditor);
+        // die();
 
-        // Filtrer les questions en fonction du niveau de l'auditeur
         $filteredQuestions = [];
         foreach ($questionDevoirNive as $question) {
-            // Décoder 'niveau' de JSON en tableau
             $niveauArray = json_decode($question['niveau'], true);
-
-            // Vérifier que la conversion a réussi et que $niveauArray est un tableau
             if (is_array($niveauArray) && in_array($auditor['niveau_id'], $niveauArray)) {
                 $filteredQuestions[] = $question;
             }
@@ -71,7 +65,7 @@ class FormController extends BaseController
         // die();
 
         // Charger la vue
-        return view('backend/espaceauditor/mon_devoir', $data);
+        return view('backend/devoirs/mon_devoir', $data);
     }
 
 
